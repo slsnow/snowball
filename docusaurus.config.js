@@ -6,6 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  projectName: 'snowball',
+  organizationName: 'slsnow',
   title: 'Snowball',
   tagline: 'Unstoppable in the pursuit of accumulating knowledge.',
   //url: 'https://your-docusaurus-test-site.com',
@@ -18,11 +20,10 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
 
-  url: 'https://slsnow.github.io', // Your website URL
-  baseUrl: '/',
-  projectName: 'snowball',
-  organizationName: 'slsnow',
-  trailingSlash: true,
+  url: 'https://${organizationName}.github.io', // Your website URL
+  baseUrl: '/${projectName}/',
+ 
+  trailingSlash: false,
 
 
   // Even if you don't use internalization, you can use this field to set useful
