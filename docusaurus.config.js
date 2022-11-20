@@ -21,7 +21,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
 
   url: 'https://slsnow.github.io', // Your website URL
-  baseUrl: '/snowball',
+  baseUrl: '/snowball/',
   trailingSlash: false,
 
 
