@@ -1,7 +1,7 @@
 ---
 title: welcome test
 description: This is a post
-slug: welcom-test
+slug: welcome-blog
 authors: ssnow
 ---
 
