@@ -129,19 +129,13 @@ const config = {
     }),
 };
 
-module.exports = config;
-/*module.exports = {
+//module.exports = config;
+module.exports = {
   // ...
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        debug: true, // This will enable the plugin in production
-      },
-    ],
-  ],
-    plugins: [[ require.resolve('docusaurus-lunr-search'), {
-      languages: ['en']
-    }]]
-}
-*/
+  url: 'https://slsnow.github.io/snowball', // Your website URL
+  baseUrl: '/',
+  projectName: 'snowball',
+  organizationName: 'slsnow',
+  trailingSlash: false,
+  // ...
+};
