@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Snowball Blog</title>
+        <link>https://slsnow.github.io/snowball/blog</link>
+        <description>Snowball Blog</description>
+        <lastBuildDate>Sun, 20 Nov 2022 08:27:02 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Welcome Blog]]></title>
+            <link>https://slsnow.github.io/snowball/blog/2022/welcome-blog</link>
+            <guid>/2022/welcome-blog</guid>
+            <pubDate>Sun, 20 Nov 2022 08:27:02 GMT</pubDate>
+            <description><![CDATA[Why I made this, etc......]]></description>
+            <content:encoded><![CDATA[<p>Why I made this, etc......</p><p>hi</p><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Click me</summary><div><div class="collapsibleContent_i85q"><p>stuff</p><p>stuff2</p></div></div></details>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
