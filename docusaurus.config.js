@@ -20,9 +20,8 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
 
-  url: 'https://${organizationName}.github.io', // Your website URL
-  baseUrl: '/${projectName}/',
- 
+  url: 'https://slsnow.github.io', // Your website URL
+  baseUrl: '/snowball',
   trailingSlash: false,
 
 
