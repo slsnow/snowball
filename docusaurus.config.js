@@ -22,7 +22,7 @@ const config = {
   baseUrl: '/',
   projectName: 'snowball',
   organizationName: 'slsnow',
-  trailingSlash: false,
+  trailingSlash: true,
 
 
   // Even if you don't use internalization, you can use this field to set useful
