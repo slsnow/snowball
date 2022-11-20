@@ -19,10 +19,10 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
 
   url: 'https://slsnow.github.io', // Your website URL
-  baseUrl: '/',
+  baseUrl: '/snowball/',
   projectName: 'snowball',
   organizationName: 'slsnow',
-  trailingSlash: true,
+  trailingSlash: false,
 
 
   // Even if you don't use internalization, you can use this field to set useful
