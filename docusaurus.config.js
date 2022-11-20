@@ -9,16 +9,21 @@ const config = {
   title: 'Snowball',
   tagline: 'Unstoppable in the pursuit of accumulating knowledge.',
   //url: 'https://your-docusaurus-test-site.com',
-  url: 'http://snowmanpc',
-  baseUrl: '/',
+  //url: 'http://snowmanpc',
+  //baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/snowball-icon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'slsnow', // Usually your GitHub org/user name.
-  projectName: 'snowball', // Usually your repo name.
+
+  url: 'https://slsnow.github.io', // Your website URL
+  baseUrl: '/',
+  projectName: 'snowball',
+  organizationName: 'slsnow',
+  trailingSlash: false,
+
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -129,13 +134,4 @@ const config = {
     }),
 };
 
-//module.exports = config;
-module.exports = {
-  // ...
-  url: 'https://slsnow.github.io/snowball', // Your website URL
-  baseUrl: '/',
-  projectName: 'snowball',
-  organizationName: 'slsnow',
-  trailingSlash: false,
-  // ...
-};
+module.exports = config;
