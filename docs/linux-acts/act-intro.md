@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 
-# Linux Activities
+# Activities Introduction
 
 ## Activity Tips
 

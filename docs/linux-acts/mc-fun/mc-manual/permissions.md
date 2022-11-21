@@ -1,78 +1,10 @@
 ---
-sidebar_position: 1
-title: Minecraft Manual Build
+sidebar_position: 4
+title: Permissions
 ---
-# Minecraft: Manual Building a Minecraft Server 
 
-:::caution Warning
+# Permissions
 
-Before starting this activity, take a snapshot of the VM.
-
-:::
-
-## Activity Overview: 
-
-- Goal: Build a local minecraft server from scratch. 
-- Activity Topics: 
-    - Linux User Management
-    - Downloading a file
-    - File Editing
-    - Java - Running a jar file
-
-## Linux User Management
-In a real life scenario, you might want to create some users to limit access. You may want to give access to a friend to be able to run certain game server related tasks on the system, but perhaps you don't want to give them full system access.
-
-### 1. Create a group named `game-admins`.
-
-<details>
-  <summary> Expand for Help </summary>
-
-Run the following command to create a group named `game-admins`
-```
-# groupadd game-admins
-```
-See `man groupadd` and `groupadd --help` to view additional options.
-
-</details>
-<br></br>
-
-### 2. Create a user named `minecraft-admin` that belongs to the group `game-admins`.
-
-<details>
-  <summary> Expand for Help </summary>
-
-Run the following command to create a user named `minecraft-admin`, and simultaneously add it to the group named `game-admins`.
-```
-# useradd -g game-admins minecraft-admin
-```
-
-See `man useradd` and `useradd --help` to view additional options.
-
-</details>
-
-:::tip
-
-To verify that the user `minecraft-admin` belongs to the group `game-admins`, run:
-
-```
-# id minecraft-admin
-```
-
-:::
-
-
-### 3. Create a password for `minecraft-admin`.
-
-<details markdown="1"><summary>Expand for Help</summary>
-
-```
-# passwd minecraft-admin
-```
-</details>
-<br></br>
-
-
-## Installing Java Packages
 
 This activity uses **Minecraft Java Edition**. To be able to run the Java based application, we will need to first install the required packages.
 

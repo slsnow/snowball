@@ -98,31 +98,43 @@ const config = {
                 label: 'Linux Journey',
                 to: 'https://linuxjourney.com/',
               },
+              {
+                label: 'openSUSE Docs',
+                to: 'https://doc.opensuse.org/',
+              },
+              {
+                label: 'Ubuntu Server Docs',
+                to: 'https://ubuntu.com/server/docs'
+              },
+              {
+                label: 'Rocky Linux Documentation',
+                to: 'https://docs.rockylinux.org/'
+              },
+            ],
+          },
+          {
+            title: 'YouTube Resourcess',
+            items: [
+              {
+                label: 'NetworkChuck',
+                href: 'https://www.youtube.com/@NetworkChuck',
+              },
+              {
+                label: 'tutoriaLinux',
+                href: 'https://www.youtube.com/@tutoriaLinux',
+              },
             ],
           },
           {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'GitHub',
+                href: 'https://github.com/slsnow/snowball',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/slsnow/snowball',
+                href: 'https://discord.gg/6SYzGsNZrM',
               },
             ],
           },
