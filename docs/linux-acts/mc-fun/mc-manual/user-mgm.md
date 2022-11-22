@@ -1,16 +1,10 @@
 ---
 sidebar_position: 2
-title: User Management
+title: Configure User Management
 ---
-# User Management 
+# Configure User Management 
 
-:::caution Warning
-
-Before starting this activity, take a snapshot of your VM.
-
-:::
-<br></br>
-For this activity, we want to create a non-root user, to limit access to the machine. This user will provide access to the minecraft related directories and files, without giving full root access to the server.
+Configure a non-root user, to limit access to the machine. This user will provide access to the minecraft related directories and files, without giving full root access to the server.
 
 ## 1. Create a group named `game-admins`.
 

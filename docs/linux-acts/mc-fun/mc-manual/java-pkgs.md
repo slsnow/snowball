@@ -3,7 +3,7 @@ sidebar_position: 3
 title: Installing Java Packages
 ---
 
-# Installing Java Packages
+# Install Java Packages
 
 This activity uses **Minecraft Java Edition**. To be able to run the Java based application, we will need to first install the required packages.
 
