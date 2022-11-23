@@ -1,9 +1,14 @@
 ---
 sidebar_position: 1
+title: Activities Introduction
 ---
 
+# Linux Activity Guide Introduction
 
-# Activities Introduction
+Welcome to the Linux Activity Guide. There are a few things you should know before starting these activities. 
+
+## 
+
 
 ## Activity Tips
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Configure User Management
+title: User Management
 ---
 # Configure User Management 
 

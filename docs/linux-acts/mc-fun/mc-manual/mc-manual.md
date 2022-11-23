@@ -4,19 +4,15 @@ title: Minecraft Manual Build
 ---
 # Minecraft: Manual Building a Minecraft Server 
 
-:::caution Warning
-
-Before starting this activity, take a snapshot of the VM.
-
-:::
-
 ## Activity Description
 
 For this activity, you will manually configure and run the server component of the game Minecraft (Java Edition).
 
 :::info
 
-Minecraft (Java Edition) was chosen for this activity, as it is the most sold video game of all time, and has a server-client model, with Linux support. The minecraft server-side software is freely available. To test client connections, purchase the game (if you don't already own it). 
+Minecraft (Java Edition) was chosen for this activity, as it is the most sold video game of all time, and has a server-client model, with Linux support. 
+
+The minecraft server-side software is freely available, however, to test client connections you will need to purchase the game (if you don't already own it). 
 
 https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc
 
