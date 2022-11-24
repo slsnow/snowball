@@ -58,7 +58,7 @@ Virtual Machines can require a lot of hardware resources. If you have hardware r
   
   </TabItem>
   <TabItem value="vmw">
-  VMware is the industry standard for enterprise on premise virtual machine management. There are good free options if you want to go thise route. Generally, users like to install a separate ESXI server for hosting the Virtual Machines, and not just running it on your desktop machine.   
+  VMware is the industry standard for enterprise on premise virtual machine management. There are good free options if you want to go thise route. Generally, users like to install a separate ESXI server for hosting the Virtual Machines, and not just running it on your desktop machine. If you are running MacOS, VMWare Fusion is a good option.  
   </TabItem>
   <TabItem value="aws">
   AWS (Amazon Web Services) is a popular public cloud provider for Virtual Machines. There are some good free options, depending on your monthly use, and a free 12 month trial.</TabItem>
