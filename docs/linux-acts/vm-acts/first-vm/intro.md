@@ -10,6 +10,16 @@ import TabItem from '@theme/TabItem';
 
 For this activity, we will be installing our first Virtual Machine. The VM will be for activity and lab purposes, and will be an openSUSE Leap 15.4 machine.
 
+The activities will include:
+- VM Configuration
+- OS Installation
+- SSH
+- Basic Navigation
+- Basic File Management
+- Basic Package Management
+- Basic File Editing
+- Basic System Monitoring
+
 ## Why install a Virtual Machine?
 
 There are many reasons to run a virtual machine. In this case, the activities and labs require a openSUSE OS. Even if you already had a bare metal system that boots openSUSE at your house, it's still ideal to have a VM, for snapshots, and many other reasons. You will see some of these reasons yourself throughout the activities. 
@@ -21,6 +31,12 @@ If you are interested in learning more about the Virtual Machines, how they work
 ## Setting up a Virtual Machine Manager
 
 Before we can run a virtual machine, we need to choose a system to host it. Keep in mind that your options will be limited by your hardware as well, as your virtual machine will share hardware resources with its host.
+
+:::info
+
+For now, most of these instructions are assuming that you're using Oracle VirtualBox as your VM Host Manager.
+
+:::
 
 :::caution
 
