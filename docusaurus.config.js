@@ -73,6 +73,7 @@ const config = {
         logo: {
           alt: 'My Site Logo',
           src: 'img/snowball-icon.png',
+          srcDark: 'img/darkmode-snowball-icon.png'
         },
         items: [
           {

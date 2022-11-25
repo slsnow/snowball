@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
-title: External References
+title: External Resources
 ---
 
-# External References by Topic
+# External Resources by Topic
 
 ## Virtual Machines
 
