@@ -4,11 +4,11 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Activity Based Learning',
+    title: 'Activities',
     Svg: require('@site/static/img/Linux/snowball.svg').default,
     description: (
       <>
-        Snowball is designed to be activity based and fun.
+        Activity based learning and fun
       </>
     ),
   },
@@ -17,7 +17,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        The topics, activities, and labs, are optimized for practicality. 
+        Focused on skills used by professions
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Opportunities to test your knowledge, to increase long term retention.
+        Evaluate your knowledge with challenging labs
       </>
     ),
   },

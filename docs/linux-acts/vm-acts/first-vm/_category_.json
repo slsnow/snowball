@@ -1,8 +1,4 @@
 {
   "label": "Your First Virtual Machine",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Building your first linux Virtual Machine."
-  }
+  "position": 1
 }
