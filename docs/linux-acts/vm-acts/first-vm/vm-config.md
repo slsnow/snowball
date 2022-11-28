@@ -77,18 +77,21 @@ This might seem confusing at first. If you're not sure which option to choose,pl
 
 ### 2 - Downloading an ISO
 
-Before we can configure a Virtual Machine, we are going to need the the files to install an OS on the VM. In this case, we'll be using the OpenSUSE Leap 15.4 Operating System. The Network ISO can be downloaded here: [Link](https://get.opensuse.org/leap/15.4/)
+Before we can configure a Virtual Machine, we are going to need the openSUSE Leap 15.4 ISO file. The Network ISO can be downloaded here: [Link](https://get.opensuse.org/leap/15.4/)
 
 ### 3 - Configuring a VM for Installation
 
 - Select the "New" button
-- In the Bottom of the "Create Virtual Machine" prompt, toggle to "Expert Mode". 
+- In the Bottom of the "Create Virtual Machine" prompt, toggle to "Expert Mode".
+
+![VB Setup 1](/img/vm-acts/vb-config-1.PNG)
+
 - Configure the VM with the following parameters:
 
 |Item | Parameters |
-|---  |---         |
-|Name | snowball-fvm|   
-|Machine Folder| Default (Or specify a directory). VMs will generally perform better on an SSD rather than an HDD.|
+| ---  | ---       |
+|Name | vm1-snowball|   
+|Machine Folder| Keep Default or specify a directory. VMs will generally perform better on an SSD rather than an HDD.|
 |Type| Linux |
 |Version | openSUSE (64-bit)|
 |Memory Size| 1024 MB|
@@ -100,7 +103,7 @@ Before we can configure a Virtual Machine, we are going to need the the files to
 |---  |---         |
 |File Location | Default (Or specify a directory). VMs will generally perform better on an SSD rather than an HDD.|
 |File Size | 8.00 GB|
-|Hard disk file type | VDI (virtualBOx Disk Image)|
+|Hard disk file type | VDI (VirtualBox Disk Image)|
 |Storage on physical hard disk|Fixed Size|
 
 <br></br>
@@ -111,17 +114,43 @@ These minimal CPU, RAM, and Disk Space parameters will work fine for the purpose
 
 :::
 
-- Select "Create" to continue.
+- Select "Create" create the disk, and continue.
 
-At this point, a new Window should appear showing your VM (Powered OFF), with an additional prompt. 
+### 4 - Network Adapter Settings
 
-- In the "Select start-up disk" prompt, point to the openSUSE Leap 15.4 Network ISO that was downloaded in step 2 above.
-- Select "Start" to begin the OS installation.
-    - At this point, you may want to apply the "Scaled-View" in the display options.  
+- The new VM should be created, but powered off. 
+- In the Oracle VM VirtualBox Manger, right click the "vm1-snowball" VM, and select "Settings".
+- Select the "Network" Tab.
+- Configure Adapter 1 to be "Attached to: Bridged Adapter".
+  - Select "OK"
+
+![VB Network](/img/vm-acts/vb-network.PNG)
+
+### 5 - Startup and View
+
+- Start the VM.
+
+A new window will appear. This is the window where you'll control the VM console.
+
+![VB Network](/img/vm-acts/vb-config-2.PNG)
+
+- In the "Select start-up disk" prompt, point to the openSUSE Leap 15.4 Network ISO file that was downloaded in step 2 above.
+- Select "Start".
+- When the initial page loads, press the down arrow on your keyboard, before the installer defaults to "Boot from Hard Disk".
+- At this point, you may want to adjust the window scaling, or other options.
+
+:::note
+
+Generally, a VM has to be shutdown to apply any hardware changes.
+
+:::
+
 
 :::tip
 
-See the VirtualBox User Manual, or google for any VirtualBox related questions.
+If your mouse and keyboard is captured within the VM, use Right-Ctrl to escape back out to your normal desktop.
+
+For more tips, see the VirtualBox User Manual, or google for any VirtualBox related questions.
 https://www.virtualbox.org/manual/ch01.html#intro-starting
 
 :::
