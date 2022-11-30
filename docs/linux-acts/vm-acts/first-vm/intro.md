@@ -3,14 +3,15 @@ sidebar_position: 1
 title: Activity Overview
 ---
 
-# Your First Virtual Machine - Activity Overview
+# Introduction to Virtual Machines - Activity Overview
 
-For this activity, you will be installing a first Virtual Machine. The VM will be used for activity and lab purposes, and will be an openSUSE Leap 15.4 machine.
+For this activity, you will be installing a Virtual Machine (VM), and using it as a tool to explore various concepts of the Linux Operating system. There will also be a lab to evaluate what you have learned. You will be using openSUSE Leap 15.4 as the Operating System for the VM.
 
 ## Overview
 - [VM Configuration Walkthrough](./vm-config)
 - [OS Installation Walkthrough](./os-install)
-- [Network and SSH Basics](./net-ssh)
+- [Network and SSH Basics](./network)
+- [SSH Basics](./ssh)
 - Command Basics
 - Navigation Basics
 - File Management Basics

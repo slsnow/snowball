@@ -8,9 +8,11 @@ import TabItem from '@theme/TabItem';
 
 # Virtual Machine Configuration Walkthrough
 
+The purpose of this section of the activity, is to guide you through the VirtualBox configuration, in preparation for the OS installation.
+
 ## Setting up a Virtual Machine Manager
 
-Before we can run a virtual machine, we need to choose a system to host it. Keep in mind that your options will be limited by your host OS, your hardware, and whether you want to use a free or paid service.
+Before we can run a Linux VM, we need to choose a system to host it. Keep in mind that your options will be limited by your host OS, your hardware, and whether you want to use a free or paid service.
 
 :::info
 
