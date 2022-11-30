@@ -10,7 +10,7 @@ Configure a home directory for the minecraft server files, and limit permissions
 ## 1. Create the directory /opt/minecraft
 
 ```
-# mkdir -p /opt/minecraft`
+# mkdir -p /opt/minecraft
 ```
 
 ## 2. Assign the directory ownership to `minecraft-admin:game-admins`
