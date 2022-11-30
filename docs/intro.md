@@ -17,7 +17,7 @@ This is NOT a theory based text-book, video guide, or typical learning course. F
 
 ## Who is this for?
 
-This is mostly for those that are interested in developing practical Linux skills, specifically for those interested in Linux system administration or technical support.
+This is designed for Linux beginners, who are interested in developing practical skills. More specifically for those interested in Linux system administration or technical support.
 
 ## Why Learn Linux?
 

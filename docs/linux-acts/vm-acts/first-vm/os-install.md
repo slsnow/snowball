@@ -3,7 +3,9 @@ sidebar_position: 3
 title: OS Installation
 ---
 
-# Operating System Installation Guide
+# Operating System Installation Walk-Through
+
+The goal of this section, is to guide you through the installation process of the openSUSE Leap 15.4 OS. 
 
 ## Installing Leap 15.4
 
