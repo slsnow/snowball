@@ -5,57 +5,52 @@ title: Networking Basics
 
 # Networking Basics
 
-The purpose of this section, is to run through some network related commands, to become familiar with some basic networking concepts.
+## Identification Activities
 
-## Networking Activity
+During this activity, you will be introduced to a number of basic networking commands that are available on most modern Linux systems. These commands are tools that can be used to display information about the network configuration of the system, including the IP address, and other settings. As a result of this activity, you will be prepared to use SSH login.
 
-## 1 - Identify Hardware Details for your NIC
+### 1 - Display Information About the System's Network Devices
 
-To view information about the NIC, you could run the following command:
+To identify information about the system's network devices, you could run the following command:
 ```
 # hwinfo --netcard
 ```
-
-The `hwinfo` command, as it turns out, is a command to display hardware info. In this example, since the `--netcard` argument was specified, information about the Network Card, or Network Interface Controller, is displayed. This includes information such as the NIC hardware vendor, driver, MAC (HW Address), and more. 
-
 <details>
-  <summary>Additional Notes: Local Hardware Components and Concepts</summary>
+  <summary>Additional Info: <code>hwinfo</code></summary>
 
-- Computer Networking: Computers are more useful when they can communicate with other computers. Computer networking is the process by which computers are able to communicate with each other. 
+The `hwinfo --netcard` command is used to display information about the network devices on a system. This command is part of the `hwinfo` utility, which provides detailed information about the hardware components of the system.
 
-- A <u>L</u>ocal <u>A</u>rea <u>N</u>etwork (LAN) is a computer network that interconnects computers within a limited area, such as your home network.
+When run with the `--netcard` option, `hwinfo` will display a list of the network devices on the system, including their type, model, and specifications.
 
-- Network Adapter: A Network Adapter is a component that connects a computer system to a computer network, and is also called a Network Interface Controller (NIC), among other names.
+The output also includes the driver and modules used by the device, as well as the hardware address (MAC address) and other configuration details.
 
-- <u>M</u>edia <u>A</u>ccess <u>C</u>ontrol Address: A MAC address is a unique identifier assigned to a NIC.
-
-- Switch: A device that connects devices on a computer network, and passes communication (packet switching) between the devices.
-
-- Network Bridge: A network bridge is a virtual switch that funnels the virtual guests through to the physical NIC of the VM host machine. 
+Overall, the `hwinfo --netcard` command is a useful tool for displaying detailed information about the network devices on a system. It can provide valuable information for diagnosing and troubleshooting network issues on the system.
 
 </details>
 
 <!--
-Add DHCP info above
+TODO
+
+Add a link to the hwinfo command, and man page
 -->
 
+<br></br>
 
-## 2 - Identify the system's Private IP Address
+### 2 - Identify the system's IP Address
 
-System's are assigned private IP addresses,  for local (LAN) communication.
-
-To view a system's Private IP address, you can simply run the following command:
+To view a system's IP address, you can run the following command:
 ```
 ip address
 ```
-This output might seem a bit confusing. In the example below, the system's IP address is `192.168.0.101`. 
 
 <details>
-  <summary>Additional Notes: <code>ip address</code> output</summary>
+  <summary>Additional Info: The <code>ip address</code> Output</summary>
 
-Let's break down some of the output values of the command `ip address`.
 
-An Example Output:
+<br></br>
+
+The output of the `ip address` command will display a list of the network interfaces and their IP address, if any are found. For example, the output might look like this:
+
 ```bash
 # ip address
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -73,111 +68,147 @@ An Example Output:
        valid_lft forever preferred_lft forever
 
 ```
+In the above example, the first interface, the `lo` network interface, is the loopback IP address. With an address of `127.0.0.1`, this is a special IP address used to enable communication between the network stack on the system, and the localhost. In other words, this address is available for the system to communicate with itself. This can be useful for debugging and other tasks.
 
-- `1: lo: ...`
-    - This section refers to the loopback interface, or Local Host.
-    - This is an interface, that assigns the localhost IP 127.0.0.1, which will loop back to the system itself.
-    - The loopback address is useful for debugging tasks.
-    - For more information: [Leap 15.4 Networking Docs](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-network.html#sec-network-addresses-route)
+In the above example, the second interface, the `eth0` network interface, has an IP address of `192.168.0.101`. This is the IP address that is assigned to the network interface `eth0`, and is used to identify the device on the network.
 
-- `2: eth0:...`
-    - This is the default device name assigned to the NIC.
-        - For now, we won't worry about the rest of the values on that line.
-- `link/ether 08:00:27:74:5f:18 ...`
-    - This refers to the interface MAC address.
-- `altname enp0s3`
-    - This is an alternative name for this interface
-    - "en" is short for Ethernet
-    - "p0" refers to the bus number of the NIC
-    - "s3" referes to the slot number. 
-- `inet 192.168.0.101/24 ...`
-    - inet: This refers to IPv4 (Internet Protocol version 4).
-    - `192.168.0.101` is the IP Address that we were looking for.
-    - `/24` refers to the subnet mask.
-- `inet6 ...`
-    - This section refers to the ipv6 address.
+In the output, `inet` refers to IPv4, wheras `inet6` refers to IPv6.
 
-</details>
+:::tip
+
+You may see many references to another networking tool named `ifconfig`. This tool is now considered deprecated and has been replaced by the newer `ip` command, which is part of the `iprout2` utility. The `iproute2` suite of tools, and provides a wide range of functionality for managing and configuring network devices on the system.  
+
+:::
 
 :::tip
 
 The `ip a` or `ip addr` commands are the short form of the `ip address` command, and work exactly the same. 
 
 :::
+</details>
 
-:::info
+<br></br>
 
-You may see many references to `ifconfig` and `netstat`. These tools and commands are now considered deprecated and have been replaced by the newer `ip` and `ss` commands.  
+### 3 - Identify the IP Address of the Router
 
-:::
-
-## 3 - Identify the Router
-
-To identify the default router's IP address, run the following command:
+To identify the router, you can use the `ip` command again to display the default route for the system:
 ```
-ip route
-```
-In the example output below, the router's IP address is `192.168.0.1`.
-
-To test a connection to the router, you could run:
-```
-ping 192.168.0.1
+ip route show default
 ```
 
 <details>
-  <summary>Additional Notes: Router and External Networking</summary>
+  <summary>Additional Info: The Router</summary>
 
-Example Output:
 ```
-# ip route
+# ip route show default
 default via 192.168.0.1 dev eth0 proto dhcp
-192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.101
 ```
-
-The default gateway is for any and all traffic which is not destined for the local network and for which no preferred route is specified in the route table. Traditionally, the default gateway is a dedicated network router.
-
-- Router: A network device that forwards communication (data packets), from one computer network, to other computer networks.
-
-- Firewall: A firewall is a network security device that monitors incoming and outgoing network traffic. After it filters through the traffic, it is able to allow or block communication based on a defined set of security rules. There are also software firewalls, that can run locally as well.
-
-- WAN: A <u>W</u>ide <u>A</u>rea <u>N</u>etwork (WAN) is a computer network that interconnects computer networks that extend over large geographical areas. The internet, is an example of a Wide Area Network. 
-
-- Layer Models: [Doc Link](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-network.html#fig-net-basic-OSI)
-
-![netbasic osi](/img/vm-acts/net_basic_osi.png)
+The command will display the default route for the system, along with the IP address of the next hop on the route. This IP address will typically be the IP address of the router on the network. In the example above, the IP address of the router is `192.168.0.1`.
 
 </details>
 
-## 4 - Ensure the Local Firewall is Disabled
+<br></br>
 
-The OS openSUSE Leap 15.4, and other current Linux distros, come with the local firewall service called `firewalld`. 
-To check run:
+### 4 - Identify the Configured DNS Servers
+
+To identify the DNS servers assigned to a Linux machine, you can use the `cat` command to view the contents of the "/etc/resolv.conf" file, which contains the DNS server information.
 
 ```
-systemctl status firewalld
+cat /etc/resolv.conf
 ```
 
-If the status is showing as active, stop and disable it by running:
+<details>
+  <summary>Additional Info: DNS</summary>
+
+This will display the DNS server information in the following format:
+
+```
+nameserver DNS_SERVER_IP_ADDRESS
+```
+
+For example:
+
+```
+cat /etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
+A DNS (Domain Name System) server is a server that maps domain names (e.g. example.com) to their corresponding IP addresses (e.g. 1.1.1.1). This allows users to access websites and other network resources using domain names instead of IP addresses. This makes it easier for users to access websites and other network resources, because they do not need to remember the IP addresses of these resources.
+
+:::tip
+
+The "/etc/hosts" file is a simple text file that maps IP addresses to hostnames. This file is used by the operating system to resolve hostnames to IP addresses, without the need for a DNS server. This is useful in situations where the DNS server is not available or not functioning properly, or when you want to test a new hostname without modifying the DNS records.
+
+:::
+
+</details>
+
+<br></br>
+
+### 5 - Test Name Resolution for `google.com`
+
+```
+dig +short google.com
+```
+
+<details>
+  <summary>Additional Info: DNS Query Testing</summary>
+
+The `dig` or `nslookup` commands can be used to query the DNS server for a given IP address. In this case, for `google.com`. It will then display the response. 
+
+Adding the `+short` option to dig, provide just the result for the IP address. The longer output will display information about the DNS server that was able to resolve the hostname.
+
+</details>
+
+<br></br>
+
+### 6 - Ensure the <code>firewalld</code> Service is Disabled
+
+To disable the firewalld server, run the following:
 ```
 systemctl disable --now firewalld
 ```
 
-:::info
+<details>
+  <summary>Additional Info: Firewalld</summary>
 
-Processes, Services, and systemd will be addressed in later activities.
+Firewalld is a firewall management service that is used on modern Linux systems to control network traffic and protect the system from external threats. Firewalld allows administrators to configure firewall rules that specify which network traffic should be allowed or blocked on the system. These rules can be used to secure the system and protect it from malicious traffic, such as network attacks or unauthorized access attempts. 
 
-:::
+For the purposes of this lab, you will be disabling the service.
 
+</details>
 
-## 5 - Testing Connections
+<br></br>
+
+## Simple Connection Testing With `ping`
 
 ### The `ping` Command
 
-The `ping` command is a simple connection tool, to test sending a receiving packets via ICMP. This is a simple and well known command, but has it's limitations as well. More details about other network connection tools will be discussed in future activities.
+The `ping` command sends an ICMP echo request packet to the specified IP address, and waits for a response from the destination. If the destination responds to the `ping`, it indicates that the Linux system is able to communicate with the specified IP address. The `ping` is useful, but has limitations as well.
 
-### A - Test the Connection to the Router
+### A - `ping` localhost (IPv4)
 
-First, let's ping the address for the router IP address we identified in step 3.
+To specify to use IPv4, you can add a `-4` option to the ping command. 
+
+For example:
+
+```
+ping -4 localhost
+PING  (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.212 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.022 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.022 ms
+```
+:::tip
+
+In the example above, the replies were received. To interrupt the ping command's process, use the bash shortcut for SIGINT (Signal Interrupt). This can be done by pressing `CTRL+C`.
+
+:::
+
+### B - `ping` the Router
+
+`ping` the address for the router IP address we identified in step 3.
 
 For example:
 ```
@@ -189,13 +220,7 @@ PING 192.168.0.1 (192.168.0.1) 56(84) bytes of data.
 ^C
 ```
 
-:::tip
-
-In the example, replies were received. To interrupt the ping command's process, use the bash shortcut for SIGINT (Signal Interrupt). This can be done by pressing `CTRL+C`.
-
-:::
-
-### B - Test an External Connection
+### C - `ping` Google DNS
 
 The IP address `8.8.8.8` is one of the public IP addresses that belong to Google DNS. Try to `ping` it:
 
@@ -208,39 +233,8 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 ^C
 ```
 
-In the example, replies were received. Interrupt as was done above.
-
 :::caution
 
-If you cannot successfully ping the router or 8.8.8.8, there is some network configuration issue. If that's the case, please ask for help.
+If you cannot successfully ping the router, your DNS, or  or 8.8.8.8, there is some network configuration issue. If that's the case, please ask for help.
 
 :::
-
-## 6 - Identify the Configured DNS Servers
-
-The Domain Name System (DNS), is a naming system to assign names to IP addresses. Like contacts in a phone, it's a lot easier to remember a name rather than a number. DNS servers keep track of what IPs belong to which hostname. 
-
-The DNS servers should have been configured automatically for you on this VM. You can check this by running
-```
-cat /etc/resolv
-```
-See the IP address(es) after `nameserver` in that file.
-
-## 7 - Test a connection to `dns.google.com`
-
-```
-ping dns.google.com
-PING dns.google.com (8.8.8.8) 56(84) bytes of data.
-64 bytes from dns.google (8.8.8.8): icmp_seq=1 ttl=60 time=19.1 ms
-64 bytes from dns.google (8.8.8.8): icmp_seq=2 ttl=60 time=16.0 ms
-64 bytes from dns.google (8.8.8.8): icmp_seq=3 ttl=60 time=16.2 ms
-```
-
-The `dig` or `nslookup` commands are useful for checking DNS lookup.
-
-```
-# dig +short dns.google.com
-8.8.8.8
-8.8.4.4
-```
-As you can see, the DNS lookup for `dns.google.com` is returning with 2 separate public addresses (8.8.8.8 and 8.8.4.4).
