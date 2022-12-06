@@ -13,11 +13,11 @@ For this activity, you will be installing a Virtual Machine (VM), and using it a
 - [Network Basics](./network)
 - [SSH Basics](./ssh)
 - [Command Basics](./commands.md)
-- Navigation Basics
-- File Management Basics
-- Package Management Basics
-- File Editing Basics
-- System Monitoring Basics
+- [Navigation Basics](./navigation.md)
+- [File Management Basics](./file-mgm.md)
+- [Package Management Basics](./pkg-mgm.md)
+- [File Editing Basics](./editor.md)
+- [System Monitoring Basics](./monitoring.md)
 
 <!--
 TODO
