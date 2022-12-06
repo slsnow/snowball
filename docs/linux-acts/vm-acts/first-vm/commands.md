@@ -5,183 +5,251 @@ title: Commands
 
 # Linux Commands
 
-In Progress
+In Progress...
+
+As you have seen from the previous example, on Linux, the command line is used to run programs and perform various tasks. To run a command on Linux, you type the command at the prompt and press Enter. The command will be executed, and the output will be displayed on the screen. 
+
+## Linux Commands Activity
+
+This all seems simple enough, but in this activity we will explore how Linux Commands work, and learn some tips along the way.
+
+### 1 - Arguments
+
+A command argument is an additional piece of information that is specified after the command name and specifies the details of how the command should be executed. Some arguments are prefixed with a `-` or `--` characters. The specific arguments, their order, and their usage can vary depending on the command being used.
+
+Run the following commands to see some examples of argument usage.
+
+#### Example A
+```
+cat --help
+```
+Here, the `--help` argument specifies that the cat command should show its help information, rather than performing its normal operation.
+
+#### Example B
+
+```
+cat /etc/os-release
+```
+This command displays the contents of a file to a terminal (among other uses).
+
+The `/etc/os-release` argument specifies the name of the file that the cat command should display. 
+
+#### Example C
+
+```
+cat -n /etc/os-release
+```
+
+This command displays the contents of the `/etc/os-release` file to the terminal, with line numbers added to each line.
+
+#### Example D
+
+```
+cat -n -E /etc/os-release
+```
+The `-n` and `-E` arguments specify that the cat command should add line numbers, and a $ character to the end of each line, respectively.
+
+Often, these commands can be combined like this.
+```
+cat -nE /etc/os-release
+```
+### 2 - Man Pages
+
+Man pages (short for manual pages) are a form of documentation for Linux command line tools and utilities. They provide detailed information about the usage and options for a particular command, as well as examples and descriptions of its functionality.
+
+To access man pages, you can use the "man" command followed by the name of the command you want to learn about. For example:
+
+```
+man cat
+```
+
+The "man cat" command displays the man page for the "cat" command.
+
+```
+man -k copy | grep -i files
+```
+This command would search the manual pages for the keywords "copy", and additionally "files" (more on piping and grep later). This is useful for finding commands that might be relevant to a particular task.
+
+:::tip
+
+Google is your friend as well if you want to quickly find a man page or a command for a specific task. However, keep in mind that different distros, or command versions may have different usage and results. 
+
+:::
+
+### 3 - Tab Completion
+
+Linux tab completion is a feature that allows you to type a partial command and then press the tab key to automatically complete the command. This can save time and make it easier to run commands, especially if you're not sure of the exact syntax.
+
+To use tab completion in Linux, simply type the first few letters of a command, then press the tab key. If there is only one possible completion for the command, it will automatically be completed for you. If there are multiple possible completions, you can press the tab key again to see a list of options.
+
+#### Tab Completion Activity
+- Type the following command and press the tab key:
+```
+ls -l /va
+```
+- The terminal will automatically complete the command to `ls -l /var`
+
+- This will show the possible arguments, in this case directories within the `/var/` directory.
+
+- Press tab key twice
+
+- Now type in the following, and use tab completion to complete to the file `/var/log/YaST2/y2start.log`, and hit enter.
+
+- Use tab completion, and double tabbing, to complete the following commands:
+
+```
+ip address show eth0
+```
+
+```
+cat /etc/zypp/repos.d/openSUSE-Leap-15.4-1.repo
+```
+
+```
+zypper lp --with-optional --severity critical
+```
+
+:::caution
+
+Notice that the last argument "critical" did not have an autocompletion result. In this case, you'd have to already know the argument, or search the man page.
+
+:::
 
 
-In Linux, the command line is used to run programs and perform various tasks. To run a command in Linux, you type the command at the prompt and press Enter. The command will be executed, and the output will be displayed on the screen.
+:::tip
 
-Commands in Linux often accept arguments, which are additional parameters that specify how the command should be run. For example, the ls command is used to list the contents of a directory, and accepts the -l argument to show the contents in a long format. To run the ls command with the -l argument, you would type ls -l at the prompt and press Enter.
+There are several advantages to using tab completion including:
 
-Linux also includes man pages, which are detailed manuals that provide information about the various commands and their arguments. To access a man page, you can use the man command followed by the name of the command you want to learn about. For example, to access the man page for the ls command, you would type man ls at the prompt and press Enter.
+- Saving time
+- Reducing the risk of errors
+- Helps you learn new commands
+- Makes it easier to run commands
 
-In addition to man pages, many Linux commands also include a built-in help system that provides brief information about the command and its arguments. To access the help information for a command, you can use the --help or -h argument. For example, to access the help information for the ls command, you would type ls --help or ls -h at the prompt and press Enter.
+:::
 
-Overall, the basics of running commands in Linux include typing the command at the prompt, and using arguments to specify how the command should be run. Man pages and help pages provide detailed information about the commands and their arguments, and can be accessed using the man and --help or -h arguments, respectively.
+### 4 - Tricks
 
+Use $(command) to run a command and insert its output into another command. For example, you could use echo "Today is $(date)" to display the current date and time.
 
-Linux is a Unix-like operating system that was first developed in the early 1990s by Linus Torvalds. Linux is based on the Unix operating system, which was developed in the 1970s at Bell Labs. Unix is known for its powerful command line interface, which allows users to run a wide range of commands to perform various tasks on the system.
+Use | (the "pipe" symbol) to redirect the output of one command to another command. For example, you could use ls -l | less to display the output of the ls command in the less pager, which allows you to scroll through the output more easily.
 
-The commands that are available in Linux accept arguments, which are additional parameters that specify how the command should be run. The style of arguments that is used in Linux is based on the style of arguments that was used in Unix.
-
-In Unix, commands typically accept arguments in a long format, where each argument is preceded by a double dash (--) and is followed by an equal sign (=) and the argument value. For example, the ls command in Unix can be run with the --format=long argument to show the contents of a directory in a long format.
-
-Over time, the style of arguments used in Linux has evolved, and a short format for arguments has been introduced. In the short format, arguments are preceded by a single dash (-) and are followed by a single letter or digit that represents the argument. For example, the ls command in Linux can be run with the -l argument to show the contents of a directory in a long format.
-
-Overall, the history of Linux command arguments styles is closely tied to the history of Unix, and the original style of arguments used in Unix has been extended and modified in Linux. The current style of arguments in Linux includes both the long format and the short format, and allows users to specify arguments in a flexible and convenient way.
-
-
-Linux is a Unix-like operating system that includes a command line interface that allows users to run a wide range of commands to perform various tasks on the system. To help users learn about the various commands and their options, Linux includes man pages, which are detailed manuals that provide information about the commands and their arguments.
-
-To access a man page, you can use the man command followed by the name of the command you want to learn about. For example, to access the man page for the ls command, you would type man ls at the prompt and press Enter. The man page for the ls command will be displayed on the screen, and will include detailed information about the command and its arguments.
-
-Man pages are divided into several sections, each of which provides different types of information about the command. The first section of a man page typically includes a brief description of the command and its purpose. The second section includes a detailed list of the command's arguments and options, and explains what each argument does. The third section includes examples of how the command can be used, and the fourth section includes additional information about the command and its usage.
-
-Man pages are an important resource for learning about the commands and their arguments in Linux. They provide detailed and comprehensive information about the commands, and can be an invaluable tool for users who want to learn how to use the command line effectively.
-
-
-In Linux, the PATH is an environment variable that specifies the directories in which the system should search for executable files (i.e. commands) when a command is run without specifying the full path to the command. The PATH variable is a list of directories, separated by colons (:), and is used by the system to find the commands that are run at the command line.
-
-For example, if the PATH variable is set to /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin, then the system will search for commands in the following directories, in order:
-
-/usr/local/bin
-/usr/bin
-/usr/local/sbin
-/usr/sbin
-If the command that is run is not found in any of the directories in the PATH variable, then the system will display an error message indicating that the command could not be found.
-
-To view the current value of the PATH variable, you can run the echo $PATH command at the command line. To change the value of the PATH variable, you can use the export PATH=value command, where value is the new value for the PATH variable.
-
-Overall, the PATH variable is an important environment variable in Linux, and is used to specify the directories in which the system should search for commands. By modifying the PATH variable, you can control where the system looks for commands, and can customize the way the command line works on your system.
+Use echo $? to display the exit status of the last command you ran. A exit status of 0 usually indicates that the command ran successfully, while a non-zero exit status indicates an error.
 
 
 
-In Linux, the bash shell uses hash tables to store the paths of frequently-used commands, in order to improve the performance of the command line. A hash table is a data structure that is used to store and retrieve data based on a key. In the case of bash, the key is the command name, and the data is the path to the command's executable file.
 
-When a command is run at the command line, bash will first check the hash table to see if the command's path has been stored in the table. If the path is found in the table, then bash will use the path from the table to execute the command, without having to search for the command in the directories specified in the PATH variable.
+Combining these tricks, you can do very powerful things, like this:
+#### Long Example
 
-If the command's path is not found in the hash table, then bash will search for the command in the directories specified in the PATH variable, and will add the command's path to the hash table once it is found. This means that the next time the command is run, bash will be able to find the command's path in the hash table, and will not have to search for the command in the PATH directories.
+```
+for i in $(rpm -qa --last | head -n 10 | sort -h | awk '{print $1}'); do printf "%s" "$i "; rpm -V $i; if [ $? -eq 0 ] && [ -z "$(rpm -V $i)" ]; then printf "No Discrepencies\n"; else echo $?; fi; done
+```
 
-The use of hash tables in bash can improve the performance of the command line, because it allows bash to find the paths of frequently-used commands quickly, without having to search for the commands in the PATH directories. However, the hash table can become outdated if the location of a command changes, or if a new command with the same name is added to the system. In these cases, the hash table can be cleared using the hash -r command, which will cause bash to rebuild the table the next time a command is run.
+Here is a breakdown of the steps performed by the for loop in the given command:
+
+- The `rpm -qa --last` command is run to list the installed packages on the system, sorted by the time they were last installed.
+- The `head -n 10` command is used to limit the output to the first 10 packages in the list.
+- The `sort -h` command is used to sort the packages in human-readable format (e.g. "1" comes before "10").
+- The `awk '{print $1}'` command is used to extract the first column of the output, which contains the names of the packages.
+- The output from the previous steps is passed to the for loop as a list of package names, and the loop is run once for each package in the list.
+- For each iteration of the loop, the `printf "%s" "$i "` command is used to print the name of the package, followed by a space character.
+- The `rpm -V` command is run for the current package, to verify its integrity.
+- The if statement is used to check the exit status and output of the `rpm -V` command. 
+- If the exit status is 0 and the output is empty, the printf "No Discrepencies\n" command is run to print "No Discrepencies" on the same line as the output from the previous steps.
+- If the exit status is not 0 or the output is not empty, the echo $? command is run to print the exit status of the rpm -V command.
+- The for loop continues to run for each package in the list, until all packages have been processed.
+
+In summary, this for loop runs the `rpm -V` command for the last 10 installed packages on the system, and checks the exit status and output of the command to determine if there are any discrepancies in the packages. If there are no discrepancies, it prints "No Discrepencies" on the same line as the name of the package. If there are discrepancies, it prints any output and the exit status of the rpm -V command. This can be useful for detecting and troubleshooting problems with installed packages.
+
+### 5 - Bash History
+
+Use !! to run the last command you typed. For example, if you typed ls -l and then realized you forgot to include a directory name, you could use !! to run the same command again, but with the directory name included.
+
+Use history to view a list of the commands you have typed in the current session. You can then use the ! symbol followed by a number to run a command from your history. For example, !5 would run the fifth command in your history.
+
+Use Ctrl+R to search for a command in your history. This allows you to quickly find and run a command that you have used in the past.
+
+Start typing, page up
+
+### 5 - Bash Shell shortcuts
+
+Here are some common keyboard shortcuts that can be used in the bash shell in Linux:
+
+Ctrl+A: Move the cursor to the beginning of the line
+Ctrl+E: Move the cursor to the end of the line
+Ctrl+U: Clear the line from the cursor to the beginning of the line
+Ctrl+K: Clear the line from the cursor to the end of the line
+Ctrl+W: Clear the word before the cursor
+Ctrl+R: Search through your command history
+Ctrl+C: Interrupt the currently running command
+Ctrl+D: Exit the shell
+These keyboard shortcuts can save you time and make it easier to work with the bash shell in Linux. By using them, you can quickly move around the command line, edit and delete text, and access your command history without having to use the mouse or other input devices.
+
+Note that these keyboard shortcuts may vary depending on the configuration of your system and the settings of your bash shell. Some of the shortcuts may not work, or may have different functions, depending on your specific setup. It's always a good idea to consult the documentation for your system and your bash shell to learn about the available keyboard shortcuts and how to use them.
+
+### 6 - PATH and HASH
+
+In Linux, the bash shell uses the PATH and hash variables to find and run commands.
+
+The PATH variable is a list of directories that bash searches when you run a command. When you type a command in bash, it looks for the command in each of the directories listed in the PATH variable, in the order they are listed, until it finds the command or reaches the end of the list. This allows you to run commands without specifying the full path to the command.
+
+For example, if the PATH variable is set to /usr/local/bin:/usr/bin:/bin, bash will search for the command in the /usr/local/bin, /usr/bin, and /bin directories, in that order, until it finds the command or reaches the end of the list.
+
+The hash variable is used by bash to keep track of the locations of commands that have been run recently. When you run a command in bash, it stores the location of the command in the hash table. This allows bash to quickly find and run the command the next time you run it, without having to search through the directories in the PATH variable.
+
+For example, if you run the ls command in bash, it will store the location of the ls command in the hash table. The next time you run the ls command, bash will check
+
+In Linux, the bash shell uses the PATH and hash variables to find and run commands.
+
+The PATH variable is a list of directories that bash searches when you run a command. When you type a command in bash, it looks for the command in each of the directories listed in the PATH variable, in the order they are listed, until it finds the command or reaches the end of the list. This allows you to run commands without specifying the full path to the command.
+
+For example, if the PATH variable is set to /usr/local/bin:/usr/bin:/bin, bash will search for the command in the /usr/local/bin, /usr/bin, and /bin directories, in that order, until it finds the command or reaches the end of the list.
+
+The hash variable is used by bash to keep track of the locations of commands that have been run recently. When you run a command in bash, it stores the location of the command in the hash table. This allows bash to quickly find and run the command the next time you run it, without having to search through the directories in the PATH variable.
+
+For example, if you run the ls command in bash, it will store the location of the ls command in the hash table. The next time you run the ls command, bash will check
 
 
-In Linux, the directories in which the system searches for commands are specified by the PATH environment variable. The PATH variable is a list of directories, separated by colons (:), and is used by the system to find the commands that are run at the command line.
+In Linux, the which and type commands are used to determine the location of a command. These commands can be useful when you want to find out where a particular command is located on your system, or when you want to determine if a command is built-in to the shell or provided by an external command.
 
-By default, the PATH variable typically includes the following directories:
+The which command searches through the directories listed in the PATH variable to find the location of a command. For example, if you want to find the location of the ls command, you can use the following which command:
 
-/usr/local/bin: This directory contains executables that are installed locally on the system, such as commands that are installed using the make install command.
-/usr/bin: This directory contains executables that are part of the system's core utilities, such as the ls and cd commands.
-/usr/local/sbin: This directory contains executables that are used for system administration, such as commands that are used to manage services and processes.
-/usr/sbin: This directory contains executables that are used for system maintenance, such as commands that are used to manage the system's hardware and software.
-In addition to these directories, the PATH variable can also include other directories that contain executables that are not part of the core system utilities. For example, if you have installed a custom command in the /opt/mycmds directory, you can add this directory to the PATH variable by running the export PATH=$PATH:/opt/mycmds command at the command line. This will allow the system to find and execute the custom command when it is run at the command line.
+Copy code
+which ls
+This command will search the directories in the PATH variable for a file named ls, and will print the full path to the file if it is found. For example, the which command might print /usr/bin/ls to indicate that the ls command is located in the /usr/bin directory.
 
-Overall, the directories in which the system searches for commands are specified by the PATH variable, and can be customized by adding or removing directories from the PATH variable. By modifying the PATH variable, you can control where the system looks for commands, and can customize the way the command line works on your system.
+The type command is similar to the which command, but it also checks for built-in shell commands and shell functions. For example, if you want to find out if the cd command is a built-in shell command or a separate command, you can use the following type command:
 
+Copy code
+type cd
+This command will check if the cd command is a built-in shell command, a shell function, or an external command, and will print the appropriate output. For example, the type command might print cd is a shell builtin to indicate that the cd command is built-in to the shell.
 
+### 7 - RPM 
 
-In a Linux system that uses the RPM package manager (such as Red Hat, CentOS, or Fedora), you can use the rpm command to identify which package a command came from. To do this, you can use the rpm -qf command followed by the path to the command's executable file.
+Here are some rpm tricks that you can use to see which package a command or file comes from in Linux:
 
-For example, if you want to find out which package the ls command came from, you can run the following command:
+Use the rpm -qf command to query the package that provides a specific file. For example, if you want to find out which package provides the /usr/bin/ls file, you can use the following command:
 
 Copy code
 rpm -qf /usr/bin/ls
-This will print the name of the package that contains the ls command, along with the package's version number. For example, the output of the command might be something like coreutils-8.4-46.el6.x86_64, which indicates that the ls command is part of the coreutils package, and that the package's version is 8.4-46.
+This command will print the name of the package that provides the /usr/bin/ls file, such as coreutils-8.22-19.el7.x86_64.
 
-Alternatively, you can use the which command to find the path to the command's executable file, and then use the rpm -qf command to find out which package the command came from. For example, to find out which package the ls command came from, you can run the following commands:
-
-Copy code
-which ls
-rpm -qf $(which ls)
-This will print the path to the ls command's executable file, followed by the name of the package that contains the ls command.
-
-Overall, the rpm command can be used to identify which package a command came from in a Linux system that uses the RPM package manager. By using the rpm -qf command and the path to the command's executable file, you can find out which package the command is part of, and can learn more about the package and its contents.
-
-
-In Linux, you can use the file command to identify the type of a command. The file command examines the contents of a file, and determines what type of file it is based on the file's contents and structure.
-
-To use the file command to identify the type of a command, you can run the file command followed by the path to the command's executable file. For example, to find out the type of the ls command, you can run the following command:
+Use the rpm -qf command with the -p option to query the package that provides a file from a specific package. For example, if you want to find out which package provides the /usr/bin/ls file from the coreutils package, you can use the following command:
 
 Copy code
-file /usr/bin/ls
-This will print the type of the ls command, based on the contents of the file. For example, the output of the command might be something like /usr/bin/ls: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=b9e7ebc91b3d3db2c3fbb7b5cce7617db7f65a4a, stripped, which indicates that the ls command is a 64-bit ELF (Executable and Linkable Format) shared object, and is compiled for the GNU/Linux 2.6.32 kernel.
+rpm -qf /usr/bin/ls -p coreutils-8.22-19.el7.x86_64.rpm
+This command will print the name of the package that provides the /usr/bin/ls file, such as coreutils-8.22-19.el7.x86_64, and will verify that the file is provided by the `coreutils
 
-Alternatively, you can use the which command to find the path to the command's executable file, and then use the file command to determine the type of the command. For example, to find out the type of the ls command, you can run the following commands:
+### 8 Aliases
 
-Copy code
-which ls
-file $(which ls)
-This will print the path to the ls command's executable file, followed by the type of the command, as determined by the file command.
-
-Overall, the file command can be used to identify the type of a command in Linux. By using the file command and the path to the command's executable file, you can determine the type of the command, and can learn more about the command's structure and capabilities.
-
-
-Tips
-
-Here are some tips and tricks for using the bash shell in Linux:
-
-Use tab completion: Bash supports tab completion, which allows you to type the first few letters of a command or file name, and then press the Tab key to automatically complete the rest of the name. This can save you time and effort, and can help you avoid spelling errors.
-
-Use history expansion: Bash maintains a history of the commands that you have run, which can be accessed using the history command. You can use history expansion to quickly run a previous command, or to modify a previous command and run it again. To do this, type an exclamation mark (!) followed by the number or pattern of the command you want to run, and press Enter.
-
-Use command substitution: Bash allows you to use the output of one command as the input to another command, using command substitution. To do this, enclose the first command in backticks (`) or dollar sign and parentheses ($()), and use the resulting output as the input to the second command. For example, you can use the ls command to list the files in a directory, and then use the wc command to count the number of files, like this: wc -l $(ls).
-
-Use the alias command: The alias command allows you to create short aliases for long or complex commands, which can save you time and make the commands easier to remember. For example, you could create an alias for the ls -l command, like this: alias ll="ls -l". This would allow you to use the ll command instead of the ls -l command, which would be faster to type and easier to remember.
-
-Use the cd command with a ~: The cd command allows you to change your current working directory. If you want to quickly change to your home directory, you can use the cd command followed by a ~ (tilde), like this: cd ~. This will change your current directory to your home directory, regardless of your current location.
-
-Overall, there are many tips and tricks that can help you use the bash shell more effectively in Linux. By using tab completion, history expansion, command substitution, the alias command, and the cd command with a ~, you can save time and effort, and can make your work at the command line more efficient and enjoyable.
-
-
-In Linux, the alias command allows you to create short aliases for long or complex commands. An alias is a short name that represents a longer command, and can be used as a substitute for the longer command.
-
-To create an alias, you can use the alias command followed by the alias name, an equal sign (=), and the command that the alias should represent. For example, to create an alias for the ls -l command, you could use the following command:
+In Linux, an alias is a way to define a custom command that can be used to run a series of other commands. This can be useful for creating short, easy-to-remember commands that represent more complex or frequently used commands. For example, you could create an alias named ll that runs the ls -l command, which shows the contents of a directory in a long format that includes file permissions and other details. To create an alias, you can use the alias command followed by the name of the alias and the command that you want it to run. For example, to create an alias named ll that runs the ls -l command, you would use the following command:
 
 Copy code
-alias ll="ls -l"
-This would create an alias called ll, which represents the ls -l command. You can then use the ll alias instead of the ls -l command, like this:
+alias ll='ls -l'
+Once you have created an alias, you can use it just like any other command. For example, to use the ll alias that you created in the previous example, you would simply type ll at the command prompt and press enter. The ls -l command that the alias represents would then be run.
+
+Aliases are not permanent, so if you close the terminal or log out and log back in, the aliases that you created will no longer be available. To make an alias permanent, you can add it to your shell's configuration file. The location and name of this file will vary depending on the shell that you are using, but it is typically called .bashrc for the Bash shell or .zshrc for the Zsh shell. You can add your alias to this file by opening it in a text editor and adding a line that defines the alias, using the same format as the alias command. For example, to add the ll alias that you created earlier to your .bashrc file, you would add the following line:
 
 Copy code
-ll
-This would run the ls -l command, and would display the contents of the current directory in a long format.
-
-You can create as many aliases as you like, and can use them to represent any commands that you use frequently. Aliases can save you time and effort, and can make the commands you use easier to remember.
-
-To view the aliases that are currently defined on your system, you can use the alias command without any arguments. This will print a list of all the defined aliases, along with the commands they represent. For example, the output of the alias command might look like this:
-
-Copy code
-alias ll="ls -l"
-alias la="ls -a"
-alias l="ls -CF"
-To remove an alias, you can use the unalias command followed by the name of the alias you want to remove. For example, to remove the ll alias, you could use the following command:
-
-Copy code
-unalias ll
-This would remove the ll alias, and would prevent it from being used in the future.
-
-Overall, the alias command is a useful tool for creating short aliases for long or complex commands in Linux. By using aliases, you can save time
-
-## Command Activity
-
-
-...Link to common commands topic
-
-
-
-idea for activity:
-
-Here is a simple activity that you can use to become familiar with Linux commands:
-
-Open a terminal window on your Linux system. This will provide you with a command-line interface (CLI) where you can enter and run Linux commands.
-
-Use the pwd command to print your current working directory. The pwd command stands for "print working directory", and it will print the full path of the directory you are currently in. For example, you might see output like this: /home/user/documents.
-
-Use the ls command to list the contents of your current directory. The ls command stands for "list", and it will display the names of the files and directories in your current directory. For example, you might see output like this: file1.txt file2.txt dir1 dir2.
-
-Use the cd command to change your current directory. The cd command stands for "change directory", and it allows you to move to a different directory. To use the cd command, you can type cd followed by the path to the directory you want to move to. For example, if you want to move to the dir1 directory, you can run the cd dir1 command.
-
-Use the mkdir command to create a new directory. The mkdir command stands for "make directory", and it allows you to create a new directory in your current location. To use the mkdir command, you can type mkdir followed by the name of the directory you want to create. For example, if you want to create a newdir directory, you can run the mkdir newdir command.
-
-Use the touch command to create a new empty file. The touch command allows you to create a new empty file in your current directory. To use the touch command, you can type touch followed by the name of the file you want to create. For example, if you want to create a newfile.txt file, you can run the touch newfile.txt command.
-
-Use the rm command to remove a file or directory. The rm command stands for "remove", and it allows you to delete a file or directory from your system. To use the rm command, you can type rm followed by the name of the file or directory you want to delete. For example, if you want to delete the newfile.txt file, you can run the rm newfile.txt command.
-
-Overall, this simple activity can help you become familiar with some of the basic Linux commands, such as pwd, ls, cd, mkdir, touch, and rm. By practicing these commands, you can learn how to navigate
+alias ll='ls -l'
+After you save the changes to your configuration file and open a new terminal, the alias that you created will be available to use.
