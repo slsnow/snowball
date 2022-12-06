@@ -12,7 +12,7 @@ For this activity, you will be installing a Virtual Machine (VM), and using it a
 - [OS Installation Walkthrough](./os-install)
 - [Network Basics](./network)
 - [SSH Basics](./ssh)
-- Command Basics
+- [Command Basics](./commands.md)
 - Navigation Basics
 - File Management Basics
 - Package Management Basics

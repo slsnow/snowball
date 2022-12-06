@@ -165,7 +165,7 @@ SSH keys offer several advantages over other authentication methods, such as pas
 
 :::warning
 
-Using the above method, would overwrite a systems existing authorized_keys files. In a normal scenario, you might not want to do that. This was just used for a quick example. Alternatively, you could append the contents to the existing contents of the file on the remote server.
+Using the above method, would overwrite a system's existing "authorized_keys" file. In a normal scenario, you might not want to do that. This was just used for a quick example. Alternatively, you could append the contents of "id_rsa.pub" to the existing contents of the "authorize_keys" file on the remote server.
 
 :::
 
