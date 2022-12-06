@@ -240,7 +240,7 @@ Copy code
 rpm -qf /usr/bin/ls -p coreutils-8.22-19.el7.x86_64.rpm
 This command will print the name of the package that provides the /usr/bin/ls file, such as coreutils-8.22-19.el7.x86_64, and will verify that the file is provided by the `coreutils
 
-### 8 Aliases
+### 8 - Aliases
 
 In Linux, an alias is a way to define a custom command that can be used to run a series of other commands. This can be useful for creating short, easy-to-remember commands that represent more complex or frequently used commands. For example, you could create an alias named ll that runs the ls -l command, which shows the contents of a directory in a long format that includes file permissions and other details. To create an alias, you can use the alias command followed by the name of the alias and the command that you want it to run. For example, to create an alias named ll that runs the ls -l command, you would use the following command:
 
