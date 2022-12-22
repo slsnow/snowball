@@ -15,15 +15,16 @@ For this activity, you will use SSH from a terminal on your computer to connect 
 
 :::caution
 
-It is assumed that you are using "Windows Terminal", and "Windows Powershell" to run SSH into the system. The instructions will generally apply for a Linux terminal, or pretty much any system that can run an SSH client.
+It is assumed that you are using "Windows Terminal", and "Git Bash" to run SSH into the system. If using a Linux system, ignore these steps and just open your favorite terminal (such as terminator or the like).
 
 :::
 
-### 1 - Open a Terminal
+### 1 - Open Git Bash in Windows Terminal
 
 Download the Windows Terminal: [Instructions Link](https://learn.microsoft.com/en-us/windows/terminal/install)
+Download Git Bash: [Instructions Link](https://linuxhint.com/add-git-bash-windows-terminal/)
 
-When you open the terminal, open a tab for Windows PowerShell. 
+When you open Windows Terminal, open a tab for Git Bash (you can set it as your default if you'd like).
 
 <details>
   <summary>Additional Info: Windows SSH Clients</summary>
@@ -38,23 +39,26 @@ PuTTY is a popular SSH client for Windows, but there are several other SSH clien
 
 - ZOC Terminal: ZOC Terminal is a commercial SSH client for Windows that offers a range of advanced features, such as support for multiple protocols (e.g. SSH, Telnet, Rlogin), support for multiple window types (e.g
 
-There are many other options as well. When working from a Windows machine, I prefer to just use the Windows Terminal, combined with WSL, or the builtin Windows SSH Client as described here:
+There are many other options as well. When working from a Windows machine, I prefer to just use the Windows Terminal, combined with WSL, Git Bash, or the built-in Windows SSH Client as described here:
 https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh
 </details>  
 
+<br></br>
 
 ### 2 - Test an Initial SSH Connection
 
-Open your terminal, and use the `ssh` command to connect to the remote system, using the `root` user and the IP address. 
-
 :::caution
 
-The following examples will be using the IP address `192.168.0.101`, but you will need to use the IP address identified in the previous activity.
+The following examples will be using the IP address `192.168.0.101`, but you will need to use the `root` for USER, and the IP address identified in the previous activity for `IP_ADDRESS`.
 
 :::
 
+<br></br>
+
+Open your terminal, and use the `ssh` command to connect to the remote system, using the `root` user and the IP address. 
+
 ```
-ssh <user>@<IP ADDRESS>
+ssh USER@IP_ADDRESS
 ```
 
 For example:
@@ -85,6 +89,8 @@ For example, imagine you are working on a remote Linux server and need to edit a
 
 </details>
 
+<br></br>
+
 ### 3 - Exit SSH
 
 When you are using the Secure Shell (SSH) protocol to connect to a remote server, you can exit the remote session by using the `exit` command. This command terminates the SSH session and closes the connection to the remote server.
@@ -98,6 +104,8 @@ exit
 Usually, if you disconnect from a remote SSH session, while a command or process is running, it will continue to run, as it is being executed on the remote system. In some cases, you may want to run commands and process in the background on the remote system in various ways, or use utilities like `screen`.
 
 :::
+
+<br></br>
 
 ### 4 - SSH Verbose Output
 
@@ -113,6 +121,8 @@ ssh -v root@192.168.0.101
 To enable verbose output, include the `-v` option, which will display detailed information about the ssh connection process. You can add increasing levels of verbosity, up to a maximum of three, with the option `-vvv`.
 
 </details>
+
+<br></br>
 
 ### 5 - SSH Configuration Files
 
@@ -137,24 +147,42 @@ When using SSH, there are several configuration files that control the behavior 
 
 </details>
 
+<br></br>
+
 ### 6 - Copy SSH Keys
 
 For this final step of the activity, you will manually copy an SSH key to the remote system, to secure passwordless SSH.
 
 #### A - Generate an SSH Key Pair
 
+Make sure you have exited out of your remote system `vm1-snowball`, and you're on your local machine in gitbash.
+
+Run the following command:
 ```
 ssh-keygen
 ```
-When prompted, just hit the `enter` key several times, until finished (this only needs to be done once).
+When prompted, just hit the `enter` key several times, using the default settings, until finished (this only needs to be done once).
 
-#### C - Copy the <code>id_rsa.pub</code> File to the Remote System
+#### B - Copy the Key to the Remote System
+
+Similar to Step 2 above, run the following:
 
 ```
-scp ~/.ssh/id_rsa.pub user@remote.system.com:~/.ssh/authorized_keys
+ssh-copy-id USER@IP_ADDRESS
 ```
 
-- Ensure that you can now exit, and successfully SSH back into the remote system, without it prompting for a password.
+Then insert the password when prompted.
+
+For example:
+```
+ssh-copy-id root@192.168.0.101
+```
+
+This will copy the key to the remote system, allowing passwordless logins.
+
+#### C - Test another Login
+
+Test logging in like in Step 2 above. If successful, you can now SSH into the system without the use of a password.
 
 <details>
     <summary>Additional Info: SSH Keys</summary>
@@ -163,15 +191,4 @@ SSH keys are a type of cryptographic key that is used for authentication in the 
 
 SSH keys offer several advantages over other authentication methods, such as passwords. SSH keys are more secure than passwords, because they use a form of encryption that is difficult to crack. SSH keys are also more convenient than passwords, because they allow the user to authenticate without having to enter a password.
 
-:::warning
-
-Using the above method, would overwrite a system's existing "authorized_keys" file. In a normal scenario, you might not want to do that. This was just used for a quick example. Alternatively, you could append the contents of "id_rsa.pub" to the existing contents of the "authorize_keys" file on the remote server.
-
-:::
-
-:::tip
-
-From a Linux machine, you can use the `ssh-keygen`, and then the `ssh-copy-id` command. The `ssh-copy-id` command is an ideal way to copy an SSH key to a remote system.
-
-:::tip
 </details>
