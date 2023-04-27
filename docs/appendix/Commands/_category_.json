@@ -1,0 +1,8 @@
+{
+    "label": "Cheatsheets",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Cheatsheets for common linux commands and process."
+    }
+  }

@@ -1,0 +1,8 @@
+{
+  "label": "Vagrant Deployment",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Automating VM deployments with Vagrant."
+  }
+}
