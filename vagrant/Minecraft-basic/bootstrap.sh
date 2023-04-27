@@ -1,0 +1,2 @@
+zypper patch
+ip a

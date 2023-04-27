@@ -1,14 +1,12 @@
 # Dev Guide
 
-## Wimdows
-- make sure you have git, node, and yarn installed
-    - Optionally Github Desktop and VScode if you like
-- Create a personal branch
-- Clone the github repo to local machine
-- In git terminal, navigate to the project directory
-- run `yarn install`
-- run `yarn run start` to build locally
-    - Site Search only works during deploy
-- Create a PR, when/if it's merged github actions will auto deploy
-
-## Linux
+- Verify that git, node, and yarn are installed in your environment.
+    - Optionally GitBash, GitHub Desktop, or VSCode if you like.
+- Clone the github repo
+    - Clone using a new branch, and forked repo ideally as well.
+- From the cloned project directory, run `yarn install`
+- Run `yarn run start` to build locally in development mode.
+    - In development mode, you can make and see live edits. 
+    - Note: Site Search doesn't work in development mode. It only works during a full build.
+- Create a PR
+    - When/if it's merged to main, GitHub actions will auto deploy, test, and build to the pages site.

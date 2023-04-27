@@ -1,0 +1,8 @@
+{
+  "label": "Manual VM Deployment",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Deploying a VM and Manually Installing a Minecraft Server."
+  }
+}

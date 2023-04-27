@@ -1,8 +1,8 @@
 {
-  "label": "Activity Guide",
+  "label": "Activity Guides",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Snowball Linux Learning Activity Guides"
+    "description": "Activity Guide Content"
   }
 }
